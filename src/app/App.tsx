@@ -1,13 +1,22 @@
 import React from "react";
 import "./App.css";
+import { Main } from "../pages/Main";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query-devtools";
+
+const QClient = new QueryClient();
 
 export const App = (): JSX.Element => {
     return (
         <React.Fragment>
-            <h1>App</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati veritatis optio libero labore reprehenderit at dolor repellat quidem corporis odit suscipit ullam blanditiis, rerum sunt repellendus fugiat assumenda. Expedita, sint.</p>
+            <QueryClientProvider client={QClient}>
+                <Main />
+                <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
         </React.Fragment>
     );
 };
+
+
 
 
